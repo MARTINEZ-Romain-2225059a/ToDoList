@@ -1,8 +1,7 @@
 import './App.css';
 import {useState} from "react";
-import Calendar from "react-calendar";
-import { HiArchiveBoxXMark } from "react-icons/hi2";
-import { HiMiniPencilSquare } from "react-icons/hi2";
+import {HiArchiveBoxXMark, HiMiniPencilSquare} from "react-icons/hi2";
+import {FaCalendarAlt} from "react-icons/fa";
 
 function App() {
     const [TheList, SetTheList] = useState([]);
@@ -17,8 +16,7 @@ function App() {
 
         const List = [...TheList]
         const id = new Date().getTime()
-        const task = NewTask
-        List.push({id: id, task: task});
+        List.push({id: id, task: NewTask});
         SetTheList(List);
         setNewTask("");
 
@@ -52,6 +50,7 @@ function App() {
                             {List.task}
                         <button onClick={() =>HandleButtonRemove(List.id)}><HiArchiveBoxXMark /></button>
                         <button onClick={() =>HandleEditRemove(List.id)}><HiMiniPencilSquare /></button>
+                        <button onClick={() =>HandleEditRemove(List.id)}><FaCalendarAlt /></button>
                     </form>
                 ))}
             </ul>
